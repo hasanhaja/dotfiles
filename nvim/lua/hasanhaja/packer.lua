@@ -48,5 +48,9 @@ return require('packer').startup(function(use)
 		  {'rafamadriz/friendly-snippets'},
 	  }
   }
+ 
+  use('lewis6991/gitsigns.nvim')
+
+  use('numToStr/Comment.nvim')
 
 end)
