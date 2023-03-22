@@ -67,6 +67,10 @@ export ZSH=/Users/hasan/.oh-my-zsh
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  autoupdate
+  zsh-completions
 )
 
 source $ZSH/oh-my-zsh.sh
