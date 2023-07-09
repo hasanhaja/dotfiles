@@ -19,6 +19,11 @@ lsp.configure('lua-language-server', {
     }
 })
 
+lsp.configure('tsserver', {
+  single_file_support = false,
+  root_dir = require('lspconfig.util').root_pattern('package.json')
+})
+
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
