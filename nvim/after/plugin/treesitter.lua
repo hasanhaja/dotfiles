@@ -20,3 +20,12 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+vim.filetype.add({
+    extension = {
+        webc = 'webc'
+    },
+    filename = {['.webc'] = 'html'}
+})
+
+vim.treesitter.language.register('html', 'webc')
