@@ -143,3 +143,10 @@ export NVM_DIR="$HOME/.nvm"
 export PNPM_HOME="/Users/hasan/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+# bun completions
+[ -s "/Users/hasan/.bun/_bun" ] && source "/Users/hasan/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
