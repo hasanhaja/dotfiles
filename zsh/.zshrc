@@ -130,7 +130,7 @@ alias prj="cd /Users/hasan/Programming/Projects"
 alias python="python3"
 alias work="cd /Users/hasan/Programming/Work/Development/workspace"
 alias switch-git="switch-git.sh"
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+source /usr/local/opt/powerlevel10k/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
