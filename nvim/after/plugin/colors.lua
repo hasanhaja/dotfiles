@@ -13,7 +13,8 @@ require("rose-pine").setup({
   styles = {
       bold = true,
       italic = true,
-      transparency = false,
+      -- This doesn't appear to make the terminal transparent, but it makes the background color look correct
+      transparency = true,
   },
 
   groups = {
@@ -49,12 +50,3 @@ require("rose-pine").setup({
 })
 
 vim.cmd("colorscheme rose-pine")
--- vim.cmd("colorscheme rose-pine-main")
--- vim.cmd("colorscheme rose-pine-moon")
--- vim.cmd("colorscheme rose-pine-dawn")
-
-
--- function ColorMyPencils(color)
--- 	color = color or "rose-pine"
--- 	vim.cmd.colorscheme(color)
--- end

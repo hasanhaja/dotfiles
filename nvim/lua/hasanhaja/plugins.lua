@@ -1,6 +1,8 @@
 return {
   { "rose-pine/neovim",
     name = "rose-pine",
+    lazy = false,
+    priority = 1000,
   },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   {
