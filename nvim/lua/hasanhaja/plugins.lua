@@ -90,18 +90,24 @@ return {
             'elixirls',
             'eslint',
             'zls',
+            'bashls',
+            'jsonls',
+            'cssls',
           }
         },
       },
     },
     config = function()
+      -- Reference: https://github.com/tjdevries/config.nvim/blob/master/lua/custom/plugins/lsp.lua
+
       local capabilities = nil
       if pcall(require, "cmp_nvim_lsp") then
         capabilities = require('cmp_nvim_lsp').default_capabilities()
       end
 
-      local lspconfig = require('lspconfig').util.default_config
-      lspconfig.capabilities = vim.tbl_deep_extend('force', lspconfig.capabilities, capabilities)
+      vim.lsp.config('*', {
+        capabilities = capabilities,
+      })
 
       -- This is where you enable features that only work
       -- if there is a language server active in the file
