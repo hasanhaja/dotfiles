@@ -144,6 +144,9 @@ export PNPM_HOME="/Users/hasan/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
+# go
+export GOPATH="$HOME/go"
+
 # bun completions
 [ -s "/Users/hasan/.bun/_bun" ] && source "/Users/hasan/.bun/_bun"
 
