@@ -4,10 +4,70 @@ return {
     lazy = false,
     priority = 1000,
   },
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   {
-    "nvim-telescope/telescope.nvim", tag = "0.1.8",
-    dependencies = { "nvim-lua/plenary.nvim" }
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    lazy = false,
+    branch = "main",
+    opts_extend = {
+      "ensure_installed",
+    },
+    opts = {
+      sync_install = false,
+      -- Automatically install missing parsers when entering buffer
+      -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+      auto_install = true,
+      highlight = { enable = true },
+      ensure_installed = {
+        "bash",
+        "diff",
+        "vimdoc",
+        "vim",
+        "javascript",
+        "typescript",
+        "tsx",
+        "jsdoc",
+        "json",
+        "html",
+        "markdown",
+        "markdown_inline",
+        "astro",
+        "json",
+        "toml",
+        "yaml",
+        "xml",
+        "c",
+        "lua",
+        "luadoc",
+        "luap",
+        "elixir",
+        "heex",
+      },
+    },
+    config = function()
+      vim.filetype.add({
+        extension = {
+          webc = 'webc'
+        },
+        filename = {['.webc'] = 'html'}
+      })
+
+      vim.treesitter.language.register('html', 'webc')
+    end
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local builtin = require('telescope.builtin')
+      vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
+      vim.keymap.set('n', '<leader>pg', builtin.live_grep, {})
+      vim.keymap.set('n', '<leader>ph', builtin.help_tags, {})
+      vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+      vim.keymap.set('n', '<leader>ps', function()
+        builtin.grep_string({ search = vim.fn.input("Grep > ") });
+      end)
+    end
   },
   {
     "ThePrimeagen/harpoon",
