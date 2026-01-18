@@ -100,7 +100,17 @@ return {
   },
   {
     "numToStr/Comment.nvim",
-    lazy = true,
+    opts = {
+      ignore = '^$',
+      toggler = {
+        line = '<leader>//',
+        block = '<leader>??',
+      },
+      opleader = {
+        line = '<leader>/',
+        block = '<leader>?',
+      },
+    },
   },
   {
     "folke/zen-mode.nvim",
