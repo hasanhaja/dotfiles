@@ -6,21 +6,16 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     build = ":TSUpdate",
     lazy = false,
-    branch = "main",
-    opts_extend = {
-      "ensure_installed",
-    },
-    opts = {
-      sync_install = false,
-      -- Automatically install missing parsers when entering buffer
-      -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-      auto_install = true,
-      highlight = { enable = true },
-      ensure_installed = {
+    config = function()
+      local TS = require("nvim-treesitter")
+      local ensure_installed = {
         "bash",
         "diff",
+        "gitcommit",
+        "gitignore",
         "vimdoc",
         "vim",
         "javascript",
@@ -29,6 +24,7 @@ return {
         "jsdoc",
         "json",
         "html",
+        "css",
         "markdown",
         "markdown_inline",
         "astro",
@@ -36,15 +32,22 @@ return {
         "toml",
         "yaml",
         "xml",
+        "csv",
         "c",
         "lua",
         "luadoc",
         "luap",
         "elixir",
         "heex",
-      },
-    },
-    config = function()
+        "php",
+        "python",
+        "rust",
+        "zig",
+      }
+
+      TS.install(ensure_installed)
+
+      -- TODO Validate if this still works with new TS
       vim.filetype.add({
         extension = {
           webc = 'webc'
@@ -53,6 +56,19 @@ return {
       })
 
       vim.treesitter.language.register('html', 'webc')
+
+      local group = vim.api.nvim_create_augroup('hasanhaja-treesitter', { clear = true })
+      vim.api.nvim_create_autocmd("FileType", {
+        group = group,
+        callback = function(ev)
+          local bufnr = ev.buf
+          local ok, parser = pcall(vim.treesitter.get_parser, bufnr)
+          if not ok or not parser then
+            return
+          end
+          pcall(vim.treesitter.start)
+        end,
+      })
     end
   },
   {
