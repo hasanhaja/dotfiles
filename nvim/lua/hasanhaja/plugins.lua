@@ -47,7 +47,6 @@ return {
 
       TS.install(ensure_installed)
 
-      -- TODO Validate if this still works with new TS
       vim.filetype.add({
         extension = {
           webc = 'webc'
