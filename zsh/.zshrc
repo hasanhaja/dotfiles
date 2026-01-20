@@ -117,6 +117,7 @@ export PATH="/Users/hasan/Programming/scripts/switch-git:$PATH"
 alias cls="clear"
 alias ls="eza --icons --group-directories-first --oneline"
 alias ll="eza -alF --git --icons --group-directories-first"
+alias tree="eza --tree"
 alias find="fd"
 alias cat="bat"
 alias jp="cd /Users/hasan/Programming/Java/Development/workspace"
@@ -143,6 +144,9 @@ export NVM_DIR="$HOME/.nvm"
 export PNPM_HOME="/Users/hasan/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+# go
+export GOPATH="$HOME/go"
 
 # bun completions
 [ -s "/Users/hasan/.bun/_bun" ] && source "/Users/hasan/.bun/_bun"
