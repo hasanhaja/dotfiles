@@ -188,6 +188,8 @@ return {
             'lua_ls',
             'gopls',
             'html',
+            'ts_ls',
+            'denols',
             'elixirls',
             'eslint',
             'zls',
@@ -208,6 +210,15 @@ return {
 
       vim.lsp.config('*', {
         capabilities = capabilities,
+      })
+
+      vim.lsp.config('denols', {
+          root_markers = {"deno.json", "deno.jsonc"},
+      })
+
+      vim.lsp.config('ts_ls', {
+          root_markers = {"package.json"},
+          single_file_support = false,
       })
 
       -- This is where you enable features that only work
