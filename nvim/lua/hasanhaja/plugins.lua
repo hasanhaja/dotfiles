@@ -185,17 +185,18 @@ return {
         "mason-org/mason-lspconfig.nvim",
         opts = {
           ensure_installed = {
-            'lua_ls',
-            'gopls',
-            'html',
-            'ts_ls',
-            'denols',
-            'elixirls',
-            'eslint',
-            'zls',
-            'bashls',
-            'jsonls',
-            'cssls',
+            "bashls",
+            "lua_ls",
+            "html",
+            "jsonls",
+            "cssls",
+            "ts_ls",
+            "eslint",
+            "denols",
+            "pyright",
+            "elixirls",
+            "gopls",
+            "zls",
           }
         },
       },
@@ -205,21 +206,28 @@ return {
 
       local capabilities = nil
       if pcall(require, "cmp_nvim_lsp") then
-        capabilities = require('cmp_nvim_lsp').default_capabilities()
+        capabilities = require("cmp_nvim_lsp").default_capabilities()
       end
 
-      vim.lsp.config('*', {
+      vim.lsp.config("*", {
         capabilities = capabilities,
       })
 
-      vim.lsp.config('denols', {
-          root_markers = {"deno.json", "deno.jsonc"},
+      vim.lsp.config("denols", {
+        root_markers = { "deno.json", "deno.jsonc" },
       })
 
-      vim.lsp.config('ts_ls', {
-          root_markers = {"package.json"},
-          single_file_support = false,
+      vim.lsp.config("ts_ls", {
+        root_markers = { "package.json" },
+        single_file_support = false,
       })
+
+      vim.lsp.config("mojo_ls", {
+        cmd = { "mojo-lsp-server" },
+        filetypes = { "mojo", "🔥" },
+        root_markers = { "pixi.toml" }
+      })
+      vim.lsp.enable("mojo_ls")
 
       -- This is where you enable features that only work
       -- if there is a language server active in the file
