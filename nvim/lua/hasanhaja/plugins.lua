@@ -42,6 +42,7 @@ return {
         "php",
         "python",
         "rust",
+        "odin",
         "zig",
       }
 
@@ -196,6 +197,7 @@ return {
             "pyright",
             "elixirls",
             "gopls",
+            "ols",
             "zls",
           }
         },
