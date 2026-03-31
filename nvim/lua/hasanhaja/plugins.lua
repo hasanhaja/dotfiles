@@ -42,6 +42,7 @@ return {
         "php",
         "python",
         "rust",
+        "c",
         "odin",
         "zig",
       }
@@ -197,6 +198,7 @@ return {
             "pyright",
             "elixirls",
             "gopls",
+            "clangd",
             "ols",
             "zls",
           }
@@ -223,13 +225,6 @@ return {
         root_markers = { "package.json" },
         single_file_support = false,
       })
-
-      vim.lsp.config("mojo_ls", {
-        cmd = { "mojo-lsp-server" },
-        filetypes = { "mojo", "🔥" },
-        root_markers = { "pixi.toml" }
-      })
-      vim.lsp.enable("mojo_ls")
 
       -- This is where you enable features that only work
       -- if there is a language server active in the file
