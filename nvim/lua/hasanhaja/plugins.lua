@@ -43,6 +43,7 @@ return {
         "python",
         "rust",
         "c",
+        "go",
         "odin",
         "zig",
       }
