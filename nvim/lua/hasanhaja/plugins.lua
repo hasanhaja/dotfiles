@@ -39,6 +39,7 @@ return {
         "luap",
         "elixir",
         "heex",
+        "gleam",
         "php",
         "python",
         "rust",
@@ -226,6 +227,8 @@ return {
         root_markers = { "package.json" },
         single_file_support = false,
       })
+
+      vim.lsp.enable("gleam")
 
       -- This is where you enable features that only work
       -- if there is a language server active in the file
