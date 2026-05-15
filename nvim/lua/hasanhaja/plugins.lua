@@ -194,8 +194,7 @@ return {
             "html",
             "jsonls",
             "cssls",
-            "ts_ls",
-            "eslint",
+            "vtsls",
             "denols",
             "pyright",
             "elixirls",
@@ -223,7 +222,7 @@ return {
         root_markers = { "deno.json", "deno.jsonc" },
       })
 
-      vim.lsp.config("ts_ls", {
+      vim.lsp.config("vtsls", {
         root_markers = { "package.json" },
         single_file_support = false,
       })
